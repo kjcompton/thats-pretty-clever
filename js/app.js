@@ -125,3 +125,9 @@ const calculatePurple = (values) => {
     }
 }
 
+const calculateFoxes = (numOfFoxes, yellow, blue, green, orange, purple) => {
+    const scores = [yellow, blue, green, orange, purple]
+    let lowestScore = Math.min(scores)
+    return lowestScore * numOfFoxes
+}
+
