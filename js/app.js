@@ -131,3 +131,13 @@ const calculateFoxes = (numOfFoxes, yellow, blue, green, orange, purple) => {
     return lowestScore * numOfFoxes
 }
 
+const calculateScore = () => {
+    const yellow = calculateYellow()
+    const blue = calculateBlue()
+    const green = calculateGreen()
+    const orange = calculateOrange()
+    const purple = calculatePurple()
+    const foxes = calculateFoxes(0, yellow, blue, green, orange, purple)
+    const total = yellow + blue + green + orange + purple + foxes
+    console.log(total)
+}
