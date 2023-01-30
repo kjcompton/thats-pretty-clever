@@ -65,3 +65,40 @@ const calculateBlue = (marks) => {
         return 1
     }
 }
+
+//This could be calculated the same way as blue
+const calculateGreen = () => {
+    if (marks[10] === true) {
+        return 66
+    }
+    else if (marks[9] === true) {
+        return 55
+    }
+    else if (marks[8] === true) {
+        return 45
+    }
+    else if (marks[7] === true) {
+        return 36
+    }
+    else if (marks[6] === true) {
+        return 28
+    }
+    else if (marks[5] === true) {
+        return 21
+    }
+    else if (marks[4] === true) {
+        return 15
+    }
+    else if (marks[3] === true) {
+        return 10
+    }
+    else if (marks[2] === true) {
+        return 6
+    }
+    else if (marks[1] === true) {
+        return 3
+    }
+    else {
+        return 1
+    }
+}
