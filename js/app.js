@@ -102,3 +102,18 @@ const calculateGreen = () => {
         return 1
     }
 }
+
+const calculateOrange = (values) => {
+    let total = 0
+    for ([index, value]] of values) {
+        if (index === 3 || index === 6 || index === 8) {
+            total += value*2
+        }
+        else if (index === 10) {
+            total += value*3
+        }
+        else {
+            total += value
+        }
+    }
+}
