@@ -29,6 +29,39 @@ const calculateYellow = (marks) => {
     return total
 }
 
+//Think this function can simply be taking the largest indes of the array that is true and returning the number on th eelement
 const calculateBlue = (marks) => {
-    let total = 0
+    if (marks[10] === true) {
+        return 56
+    }
+    else if (marks[9] === true) {
+        return 46
+    }
+    else if (marks[8] === true) {
+        return 37
+    }
+    else if (marks[7] === true) {
+        return 29
+    }
+    else if (marks[6] === true) {
+        return 22
+    }
+    else if (marks[5] === true) {
+        return 16
+    }
+    else if (marks[4] === true) {
+        return 11
+    }
+    else if (marks[3] === true) {
+        return 7
+    }
+    else if (marks[2] === true) {
+        return 4
+    }
+    else if (marks[1] === true) {
+        return 2
+    }
+    else {
+        return 1
+    }
 }
