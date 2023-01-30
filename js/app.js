@@ -117,3 +117,11 @@ const calculateOrange = (values) => {
         }
     }
 }
+
+const calculatePurple = (values) => {
+    let total = 0
+    for (element of values) {
+        total =+ element
+    }
+}
+
