@@ -5,7 +5,7 @@ export default class Die {
         this.currentSide = 1
     }
     rollDie () {
-        this.side = Math.floor(Math.random() * (this.sides - 1) + 1)
+        this.currentSide = Math.floor(Math.random() * (this.sides - 1) + 1)
     }
     getCurrentSide() {
         return this.currentSide
