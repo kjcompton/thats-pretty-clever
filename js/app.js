@@ -19,7 +19,7 @@ class Board {
         this.greenArea = greenArea
         this.orangeArea = orangeArea
         this.purpleArea = purpleArea
-        this.numOfFoxes = 0
+        this.numOfFoxes = 3
     }
 
     calculateYellow() {
