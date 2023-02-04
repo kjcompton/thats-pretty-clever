@@ -214,7 +214,6 @@ const playRound = () => {
     }
     
     else {
-        endGame()
         playActiveRound()
     }
 
