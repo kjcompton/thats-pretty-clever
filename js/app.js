@@ -154,10 +154,46 @@ const resetDice = () => {
     })
 }
 
+const endGame = () => {
+    console.log("Game has ended!")
+    let yellowValues = []
+    document.querySelectorAll('.yellowValue').forEach(element => {
+        yellowValues.push(element.checked)
+    })
+    let blueValues = []
+    document.querySelectorAll('.blueValue').forEach(element => {
+        blueValues.push(element.checked)
+    })
+    let greenValues = []
+    document.querySelectorAll('.greenValue').forEach(element => {
+        greenValues.push(element.checked)
+    })
+    let orangeValues = []
+    document.querySelectorAll('.orangeValue').forEach(element => {
+
+        orangeValues.push(parseInt(element.value))
+    })
+    let purpleValues = []
+    document.querySelectorAll('.purpleValue').forEach(element => {
+        purpleValues.push(parseInt(element.value))
+    })
+    console.log(orangeValues)
+    console.log(greenValues)
+    const player1Board = new Board(yellowValues, blueValues, greenValues, orangeValues, purpleValues)
+    console.log(player1Board)
+    document.getElementById('gameEndContainer').style.display = 'flex';
+    document.getElementById('yellow-counter').innerHTML = player1Board.calculateYellow()
+    document.getElementById('blue-counter').innerHTML = player1Board.calculateBlue()
+    document.getElementById('green-counter').innerHTML = player1Board.calculateGreen()
+    document.getElementById('orange-counter').innerHTML = player1Board.calculateOrange()
+    document.getElementById('purple-counter').innerHTML = player1Board.calculatePurple()
+}
 
 const playRound = () => {
+    
     document.getElementById('roundCounter').innerHTML = `Round: ${gameRound}`
     if (passiveRound === true) {
+        document.getElementById('roundCounter').innerHTML = `Round: Passive`
         rolledContainer.forEach(element => {
             element.style.pointerEvents = 'none'
         })
@@ -224,7 +260,7 @@ const playGame = () => {
 //     })
 // })
 
-const player1Board = new Board
+
 const yellowDie = new Die('yellow')
 const blueDie = new Die('blue')
 const greenDie = new Die('green')

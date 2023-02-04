@@ -1,10 +1,10 @@
 export default class Board {
-    constructor() {
-        this.yellowArea = [false, false, false, false, false, false, false, false, false, false, false, false]
-        this.blueArea = [false, false, false, false, false, false, false, false, false, false, false]
-        this.greenArea = [false, false, false, false, false, false, false, false, false, false, false]
-        this.orangeArea = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        this.purpleArea = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    constructor(yellowArea, blueArea, greenArea, orangeArea, purpleArea) {
+        this.yellowArea = yellowArea
+        this.blueArea = blueArea
+        this.greenArea = greenArea
+        this.orangeArea = orangeArea
+        this.purpleArea = purpleArea
         this.numOfFoxes = 0
     }
 

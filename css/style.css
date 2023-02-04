@@ -91,7 +91,7 @@ body {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 .section-container {
@@ -108,7 +108,7 @@ body {
 .yellow-section {
     width: 50%;
     height: 100%;
-    border: 1px solid yellow;
+    background: rgb(218, 202, 65);
     border-radius: 5px;
 }
 .yellow-section .row {
@@ -117,47 +117,136 @@ body {
 .blue-section {
     width: 50%;
     height: 100%;
-    border: 1px solid blue;
+    background: rgb(52, 52, 145);
     border-radius: 5px;
+}
+.blue-section .row {
+    height: 20%;
 }
 .green-section {
     width: 100%;
     height: 15%;
-    border: 1px solid green;
+    background: rgb(43, 119, 43);
     border-radius: 5px;
 }
 .orange-section {
     width: 100%;
     height: 15%;
-    border: 1px solid orange;
+    background: rgb(105, 86, 49);
     border-radius: 5px;
 }
 .purple-section {
     width: 100%;
     height: 15%;
-    border: 1px solid purple;
+    background: rgb(94, 42, 94);
     border-radius: 5px;
 }
 img {
     width: 80%;
     border-radius: 5px;
 }
-.checkbox-display{
+.checkbox-display {
     background-color: white;
     display: inline-block;
-    height: 100%;
-    width: 19%;
+    width: 50px;
+    height: 50px;
+    
     z-index: 1;
     position: relative;
     transition: all 250ms ease-out;
     cursor: pointer;
 }
+.green-section .checkbox-display, .orange-section .checkbox-display, .purple-section .checkbox-display  {
+    
+    width: 30px;
+    height: 30px;
+}
+
 .marker-section input[type=checkbox]{
     display: none;
   /*   margin-right: -20px;
     position: relative;
     z-index: 2; */
   }
+.pre-filled {
+    background: url('/assets/x.png');
+    background-color: #fff;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 .marker-section input[type=checkbox]:checked + .checkbox-display{
-    background-color: green;
+    background: url('/assets/x.png');
+    background-color: #fff;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.reward-display {
+    background-color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+}
+.end-screen-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    background-color: #000;
+    z-index: 1000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.action-button {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #b62a7b;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px rgb(22, 22, 22);
+  }
+  
+  
+  .action-button:active {
+    background-color: #b62a7b;
+    box-shadow: 0 5px rgb(8, 8, 8);
+    transform: translateY(4px);
+  }
+  .active-button:disabled, button[disabled]{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+  }
+  .active-button:active:hover:not([disabled]) {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+  }
+
+.end-screen-container {
+    height: 100%;
+    width: 100%;
+}
+.tally-yellow {
+    color: yellow;
+}
+.tally-blue {
+    color: blue;
+}
+.tally-green {
+    color: green;
+}
+.tally-orange {
+    color: orange;
+}
+.tally-purple {
+    color: purple;
+}
+.tally-foxes {
+    color: red;
+}
+.tally-total {
+    color: white;
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>That's Pretty Clever</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div class="graphics-container">
         <div class="left-graphics-container">
@@ -14,151 +16,295 @@
         </div>
         <div class="dice-main-container">
             <div class="dice-container rolled-container">
-                <div data-color data-side data-placement="0"><img  src="" alt=""></div>
-                <div data-color data-side data-placement="1"><img  src="" alt=""></div>
-                <div data-color data-side data-placement="2"><img  src="" alt=""></div>
-                <div data-color data-side data-placement="3"><img  src="" alt=""></div>
-                <div data-color data-side data-placement="4"><img  src="" alt=""></div>
-                <div data-color data-side data-placement="5"><img  src="" alt=""></div>
+                <div data-color data-side data-placement="0"><img src="" alt=""></div>
+                <div data-color data-side data-placement="1"><img src="" alt=""></div>
+                <div data-color data-side data-placement="2"><img src="" alt=""></div>
+                <div data-color data-side data-placement="3"><img src="" alt=""></div>
+                <div data-color data-side data-placement="4"><img src="" alt=""></div>
+                <div data-color data-side data-placement="5"><img src="" alt=""></div>
             </div>
             <div class="dice-container discard-container">
-                <div data-color data-side data-placement="0"><img  src="" alt=""></div>
-                <div data-color data-side data-placement="1"><img  src="" alt=""></div>
-                <div data-color data-side data-placement="2"><img  src="" alt=""></div>
-                <div data-color data-side data-placement="3"><img  src="" alt=""></div>
-                <div data-color data-side data-placement="4"><img  src="" alt=""></div>
-                <div data-color data-side data-placement="5"><img  src="" alt=""></div>
+                <div data-color data-side data-placement="0"><img src="" alt=""></div>
+                <div data-color data-side data-placement="1"><img src="" alt=""></div>
+                <div data-color data-side data-placement="2"><img src="" alt=""></div>
+                <div data-color data-side data-placement="3"><img src="" alt=""></div>
+                <div data-color data-side data-placement="4"><img src="" alt=""></div>
+                <div data-color data-side data-placement="5"><img src="" alt=""></div>
             </div>
         </div>
         <div class="right-graphics-container">
-            <button id="actionButton">Perform Action!</button>
+            <button class="action-button" id="actionButton">Roll Dice</button>
         </div>
     </div>
     <div class="board-container">
         <div class="dice-chosen-container">
-            <div data-color data-side data-placement="0"><img  src="" alt=""></div>
-            <div data-color data-side data-placement="1"><img  src="" alt=""></div>
-            <div data-color data-side data-placement="2"><img  src="" alt=""></div>
+            <div data-color data-side data-placement="0"><img src="" alt=""></div>
+            <div data-color data-side data-placement="1"><img src="" alt=""></div>
+            <div data-color data-side data-placement="2"><img src="" alt=""></div>
         </div>
         <div class="marks-container">
-        <div class="row yellow-blue-section sections-container marker-section">
-            <div class="yellow-section section-container" id="yellow-area">
-                <div class="row">
-                    <input id="yellow1" type="checkbox" data-value="3">
-                    <label class="checkbox-display" for="yellow1">3</label>
-                    <input id="yellow2" type="checkbox" data-value="6">
-                    <label class="checkbox-display" for="yellow2">6</label> 
-                    <input id="yellow3" type="checkbox" data-value="5">
-                    <label class="checkbox-display" for="yellow3">5</label> 
-                    <label class="checkbox-display">X</label> 
-                    <div class="checkbox-display"></div>
+            <div class="row yellow-blue-section sections-container marker-section">
+                <div class="yellow-section section-container " id="yellow-area">
+                    <div class="row">
+                        <input class="yellowValue" id="yellow1" type="checkbox" data-value="3">
+                        <label class="checkbox-display" for="yellow1">3</label>
+                        <input class="yellowValue" id="yellow2" type="checkbox" data-value="6">
+                        <label class="checkbox-display" for="yellow2">6</label>
+                        <input class="yellowValue" id="yellow3" type="checkbox" data-value="5">
+                        <label class="checkbox-display" for="yellow3">5</label>
+                        <label class="checkbox-display pre-filled"></label>
+                        <div class="checkbox-display reward-display" style="color: blue">X</div>
+                    </div>
+                    <div class="row">
+                        <input class="yellowValue" id="yellow4" type="checkbox" data-value="2">
+                        <label class="checkbox-display" for="yellow4">2</label>
+                        <input class="yellowValue" id="yellow6" type="checkbox" data-value="1">
+                        <label class="checkbox-display" for="yellow6">1</label>
+                        <label class="checkbox-display pre-filled"></label>
+                        <input class="yellowValue" id="yellow7" type="checkbox" data-value="5">
+                        <label class="checkbox-display" for="yellow7">5</label>
+                        <div class="checkbox-display reward-display" style="color: orange">4</div>
+                    </div>
+                    <div class="row">
+                        <input class="yellowValue" id="yellow8" type="checkbox" data-value="1">
+                        <label class="checkbox-display" for="yellow8">1</label>
+                        <label class="checkbox-display pre-filled"></label>
+                        <input class="yellowValue" id="yellow9" type="checkbox" data-value="2">
+                        <label class="checkbox-display" for="yellow9">2</label>
+                        <input class="yellowValue" id="yellow10" type="checkbox" data-value="4">
+                        <label class="checkbox-display" for="yellow10">4</label>
+                        <div class="checkbox-display reward-display" style="color: green">X</div>
+                    </div>
+                    <div class="row">
+                        <label class="checkbox-display pre-filled">X</label>
+                        <input class="yellowValue" id="yellow11" type="checkbox" data-value="3">
+                        <label class="checkbox-display" for="yellow11">3</label>
+                        <input class="yellowValue" id="yellow12" type="checkbox" data-value="4">
+                        <label class="checkbox-display" for="yellow12">4</label>
+                        <input class="yellowValue" id="yellow13" type="checkbox" data-value="6">
+                        <label class="checkbox-display" for="yellow13">6</label>
+                        <div class="checkbox-display reward-display" style="color: red">F</div>
+                    </div>
+                    <div class="row">
+                        <div class="checkbox-display reward-display" style="font-weight: bold;">10</div>
+                        <div class="checkbox-display reward-display" style="font-weight: bold;">14</div>
+                        <div class="checkbox-display reward-display" style="font-weight: bold;">16</div>
+                        <div class="checkbox-display reward-display" style="font-weight: bold;">20</div>
+                        <div class="checkbox-display reward-display" style="font-weight: bold;"></div>
+                    </div>
                 </div>
-                <div class="row">
-                    <input id="yellow4" type="checkbox" data-value="2">
-                    <label class="checkbox-display" for="yellow4">2</label>
-                    <input id="yellow6" type="checkbox" data-value="1">
-                    <label class="checkbox-display" for="yellow6">1</label>
-                    <label class="checkbox-display">X</label> 
-                    <input id="yellow7" type="checkbox" data-value="5">
-                    <label class="checkbox-display" for="yellow7">5</label>
-                    <div class="checkbox-display"></div>
-                </div>
-                <div class="row">
-                    <input id="yellow8" type="checkbox" data-value="1">
-                    <label class="checkbox-display" for="yellow8">1</label>
-                    <label class="checkbox-display">X</label> 
-                    <input id="yellow9" type="checkbox" data-value="2">
-                    <label class="checkbox-display" for="yellow9">2</label>
-                    <input id="yellow10" type="checkbox" data-value="4">
-                    <label class="checkbox-display" for="yellow10">4</label>
-                    <div class="checkbox-display"></div>
-                </div>
-                <div class="row">
-                    <label class="checkbox-display">X</label> 
-                    <input id="yellow11" type="checkbox" data-value="3">
-                    <label class="checkbox-display" for="yellow11">3</label>
-                    <input id="yellow12" type="checkbox" data-value="4">
-                    <label class="checkbox-display" for="yellow12">4</label>
-                    <input id="yellow13" type="checkbox" data-value="6">
-                    <label class="checkbox-display" for="yellow13">6</label>
-                    <div class="checkbox-display"></div>
-                </div>
-                <div class="row">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <div class="blue-section  section-container " id="blue-area">
+                    <div class="row">
+
+                        <label class="checkbox-display pre-filled">X</label>
+                        <input class="blueValue" id="blue1" type="checkbox" data-value="2">
+                        <label class="checkbox-display" for="blue1">2</label>
+                        <input class="blueValue" id="blue2" type="checkbox" data-value="3">
+                        <label class="checkbox-display" for="blue2">3</label>
+                        <input class="blueValue" id="blue3" type="checkbox" data-value="4">
+                        <label class="checkbox-display" for="blue3">4</label>
+                        <div class="checkbox-display reward-display" style="color: orange">5</div>
+                    </div>
+                    <div class="row">
+                        <input class="blueValue" id="blue4" type="checkbox" data-value="5">
+                        <label class="checkbox-display" for="blue4">5</label>
+                        <input class="blueValue" id="blue5" type="checkbox" data-value="6">
+                        <label class="checkbox-display" for="blue5">6</label>
+                        <input class="blueValue" id="blue6" type="checkbox" data-value="7">
+                        <label class="checkbox-display" for="blue6">7</label>
+                        <input class="blueValue" id="blue7" type="checkbox" data-value="8">
+                        <label class="checkbox-display" for="blue7">8</label>
+                        <div class="checkbox-display reward-display" style="color: yellow">X</div>
+                    </div>
+                    <div class="row">
+                        <input class="blueValue" id="blue8" type="checkbox" data-value="9">
+                        <label class="checkbox-display" for="blue8">9</label>
+                        <input class="blueValue" id="blue9" type="checkbox" data-value="10">
+                        <label class="checkbox-display" for="blue9">10</label>
+                        <input class="blueValue" id="blue10" type="checkbox" data-value="11">
+                        <label class="checkbox-display" for="blue10">11</label>
+                        <input class="blueValue" id="blue11" type="checkbox" data-value="12">
+                        <label class="checkbox-display" for="blue11">12</label>
+                        <div class="checkbox-display reward-display" style="color: red">F</div>
+                    </div>
+                    <div class="row">
+                        <div class="checkbox-display reward-display"></div>
+                        <div class="checkbox-display reward-display" style="color: green">X</div>
+                        <div class="checkbox-display reward-display" style="color: purple">6</div>
+                        <div class="checkbox-display reward-display"></div>
+                        <div class="checkbox-display reward-display"></div>
+                    </div>
                 </div>
             </div>
-            <div class="blue-section section-container" id="blue-area">
+            <div class="green-section section-container marker-section" id="green-area">
                 <div class="row">
-                    <span></span>
-                    <span><input type="checkbox" data-value="2"></span>
-                    <span><input type="checkbox" data-value="3"></span>
-                    <span><input type="checkbox" data-value="4"></span>
+                    <div class="checkbox-display reward-display" style="font-weight: bold;">1</div>
+                    <div class="checkbox-display reward-display" style="font-weight: bold;">3</div>
+                    <div class="checkbox-display reward-display" style="font-weight: bold;">6</div>
+                    <div class="checkbox-display reward-display" style="font-weight: bold;">10</div>
+                    <div class="checkbox-display reward-display" style="font-weight: bold;">15</div>
+                    <div class="checkbox-display reward-display" style="font-weight: bold;">21</div>
+                    <div class="checkbox-display reward-display" style="font-weight: bold;">28</div>
+                    <div class="checkbox-display reward-display" style="font-weight: bold;">36</div>
+                    <div class="checkbox-display reward-display" style="font-weight: bold;">45</div>
+                    <div class="checkbox-display reward-display" style="font-weight: bold;">55</div>
+                    <div class="checkbox-display reward-display" style="font-weight: bold;">66</div>
                 </div>
                 <div class="row">
-                    <span><input type="checkbox" data-value="5"></span>
-                    <span><input type="checkbox" data-value="6"></span>
-                    <span><input type="checkbox" data-value="7"></span>
-                    <span><input type="checkbox" data-value="8"></span>
+                    <input class="greenValue" id="orange1" type="checkbox">
+                    <label class="checkbox-display" for="orange1">>=1</label>
+                    <input class="greenValue" id="orange2" type="checkbox">
+                    <label class="checkbox-display" for="orange2">>=2</label>
+                    <input class="greenValue" id="orange3" type="checkbox">
+                    <label class="checkbox-display" for="orange3">>=3</label>
+                    <input class="greenValue" id="orange4" type="checkbox">
+                    <label class="checkbox-display" for="orange4">>=4</label>
+                    <input class="greenValue" id="orange5" type="checkbox">
+                    <label class="checkbox-display" for="orange5">>=5</label>
+                    <input class="greenValue" id="orange6" type="checkbox">
+                    <label class="checkbox-display" for="orange6">>=1</label>
+                    <input class="greenValue" id="orange7" type="checkbox">
+                    <label class="checkbox-display" for="orange7">>=2</label>
+                    <input class="greenValue" id="orange8" type="checkbox">
+                    <label class="checkbox-display" for="orange8">>=3</label>
+                    <input class="greenValue" id="orange9" type="checkbox">
+                    <label class="checkbox-display" for="orange9">=4</label>
+                    <input class="greenValue" id="orange10" type="checkbox">
+                    <label class="checkbox-display" for="orange10">=5</label>
+                    <input class="greenValue" id="orange11" type="checkbox">
+                    <label class="checkbox-display" for="orange11">>=6</label>
                 </div>
                 <div class="row">
-                    <span><input type="checkbox" data-value="9"></span>
-                    <span><input type="checkbox" data-value="10"></span>
-                    <span><input type="checkbox" data-value="11"></span>
-                    <span><input type="checkbox" data-value="12"></span>
+                    <div class="checkbox-display reward-display"></div>
+                    <div class="checkbox-display reward-display"></div>
+                    <div class="checkbox-display reward-display"></div>
+                    <div class="checkbox-display reward-display"></div>
+                    <div class="checkbox-display reward-display"></div>
+                    <div class="checkbox-display reward-display" style="color: blue">X</div>
+                    <div class="checkbox-display reward-display" style="color: red">F</div>
+                    <div class="checkbox-display reward-display"></div>
+                    <div class="checkbox-display reward-display" style="color: purple">6</div>
+                    <div class="checkbox-display reward-display"></div>
+                    <div class="checkbox-display reward-display"></div>
                 </div>
             </div>
-        </div>
-        <div class="green-section section-container" id="green-area">
-            <div class="row">
-                <span><input type="checkbox" data-value="1"></span>
-                <span><input type="checkbox" data-value="2"></span>
-                <span><input type="checkbox" data-value="3"></span>
-                <span><input type="checkbox" data-value="4"></span>
-                <span><input type="checkbox" data-value="5"></span>
-                <span><input type="checkbox" data-value="1"></span>
-                <span><input type="checkbox" data-value="2"></span>
-                <span><input type="checkbox" data-value="3"></span>
-                <span><input type="checkbox" data-value="4"></span>
-                <span><input type="checkbox" data-value="5"></span>
-                <span><input type="checkbox" data-value="6"></span>
+            <div class="orange-section section-container" id="orange-area">
+                <div class="row">
+                    <div><input class="orangeValue" type="number" min="1" max="6" value="0"></div>
+                    <div><input class="orangeValue" type="number" min="1" max="6" value="0"></div>
+                    <div><input class="orangeValue" type="number" min="1" max="6" value="0"></div>
+                    <div><input class="orangeValue" type="number" min="1" max="6" value="0"></div>
+                    <div><input class="orangeValue" type="number" min="1" max="6" value="0"></div>
+                    <div><input class="orangeValue" type="number" min="1" max="6" value="0"></div>
+                    <div><input class="orangeValue" type="number" min="1" max="6" value="0"></div>
+                    <div><input class="orangeValue" type="number" min="1" max="6" value="0"></div>
+                    <div><input class="orangeValue" type="number" min="1" max="6" value="0"></div>
+                    <div><input class="orangeValue" type="number" min="1" max="6" value="0"></div>
+                    <div><input class="orangeValue" type="number" min="1" max="6" value="0"></div>
+                </div>
+                <div class="row">
+                    <div class="checkbox-display reward-display"></div>
+                    <div class="checkbox-display reward-display"></div>
+                    <div class="checkbox-display reward-display"></div>
+                    <div class="checkbox-display reward-display" style="color: white">x2</div>
+                    <div class="checkbox-display reward-display" style="color: yellow">x</div>
+                    <div class="checkbox-display reward-display"></div>
+                    <div class="checkbox-display reward-display" style="color: white">x2</div>
+                    <div class="checkbox-display reward-display" style="color: red">F</div>
+                    <div class="checkbox-display reward-display" style="color: white">x2</div>
+                    <div class="checkbox-display reward-display" style="color: purple">6</div>
+                    <div class="checkbox-display reward-display" style="color: white">x3</div>
+                </div>
             </div>
-        </div>
-        <div class="orange-section section-container" id="orange-area">
-            <div class="row">
-                <span><input type="number" min="1" max="6"></span>
-                <span><input type="number" min="1" max="6"></span>
-                <span><input type="number" min="1" max="6"></span>
-                <span><input type="number" min="1" max="6"></span>
-                <span><input type="number" min="1" max="6"></span>
-                <span><input type="number" min="1" max="6"></span>
-                <span><input type="number" min="1" max="6"></span>
-                <span><input type="number" min="1" max="6"></span>
-                <span><input type="number" min="1" max="6"></span>
-                <span><input type="number" min="1" max="6"></span>
-                <span><input type="number" min="1" max="6"></span>
+            <div class="purple-section section-container" id="purple-area">
+                <div class="row">
+                    <span><input class="purpleValue" type="number" min="1" max="6" value="0"></span>
+                    <span><input class="purpleValue" type="number" min="1" max="6" value="0"></span>
+                    <span><input class="purpleValue" type="number" min="1" max="6" value="0"></span>
+                    <span><input class="purpleValue" type="number" min="1" max="6" value="0"></span>
+                    <span><input class="purpleValue" type="number" min="1" max="6" value="0"></span>
+                    <span><input class="purpleValue" type="number" min="1" max="6" value="0"></span>
+                    <span><input class="purpleValue" type="number" min="1" max="6" value="0"></span>
+                    <span><input class="purpleValue" type="number" min="1" max="6" value="0"></span>
+                    <span><input class="purpleValue" type="number" min="1" max="6" value="0"></span>
+                    <span><input class="purpleValue" type="number" min="1" max="6" value="0"></span>
+                    <span><input class="purpleValue" type="number" min="1" max="6" value="0"></span>
+                </div>
+                <div class="row">
+                    <div class="checkbox-display reward-display"></div>
+                    <div class="checkbox-display reward-display"></div>
+                    <div class="checkbox-display reward-display"></div>
+                    <div class="checkbox-display reward-display" style="color: blue">X</div>
+                    <div class="checkbox-display reward-display"></div>
+                    <div class="checkbox-display reward-display" style="color: yellow">X</div>
+                    <div class="checkbox-display reward-display" style="color: red">F</div>
+                    <div class="checkbox-display reward-display"></div>
+                    <div class="checkbox-display reward-display" style="color: green">X</div>
+                    <div class="checkbox-display reward-display" style="color: orange">6</div>
+                    <div class="checkbox-display reward-display"></div>
+                </div>
             </div>
-        </div>
-        <div class="purple-section  section-container" id="purple-area">
-            <div class="row">
-                <span><input type="number" min="1" max="6"></span>
-                <span><input type="number" min="1" max="6"></span>
-                <span><input type="number" min="1" max="6"></span>
-                <span><input type="number" min="1" max="6"></span>
-                <span><input type="number" min="1" max="6"></span>
-                <span><input type="number" min="1" max="6"></span>
-                <span><input type="number" min="1" max="6"></span>
-                <span><input type="number" min="1" max="6"></span>
-                <span><input type="number" min="1" max="6"></span>
-                <span><input type="number" min="1" max="6"></span>
-                <span><input type="number" min="1" max="6"></span>
-            </div>
-        </div>
         </div>
     </div>
-    
+    <div class="end-screen-container" id="gameEndContainer">
+        <div class="tally-row tally-yellow">
+            <h2 class="tally-field">
+                YELLOW: 
+            </h2>
+            <h2 class="tally-value" id="yellow-counter">
+
+            </h2>
+        </div>
+        <div class="tally-row tally-blue">
+            <h2 class="tally-field">
+                BLUE: 
+            </h2>
+            <h2 class="tally-value" id="blue-counter">
+
+            </h2>
+        </div>
+        <div class="tally-row tally-green">
+            <h2 class="tally-field">
+                GREEN: 
+            </h2>
+            <h2 class="tally-value" id="green-counter">
+
+            </h2>
+        </div>
+        <div class="tally-row tally-orange">
+            <h2 class="tally-field">
+                ORANGE: 
+            </h2>
+            <h2 class="tally-value" id="orange-counter">
+
+            </h2>
+        </div>
+        <div class="tally-row tally-purple">
+            <h2 class="tally-field">
+                PURPLE: 
+            </h2>
+            <h2 class="tally-value" id="purple-counter">
+
+            </h2>
+        </div>
+        <div class="tally-row tally-Fes">
+            <h2 class="tally-field">
+                FES: 
+            </h2>
+            <h2 class="tally-value" id="Fes-counter">
+
+            </h2>
+        </div>
+        <div class="tally-row tally-total">
+            <h2 class="tally-field">
+                TOTAL: 
+            </h2>
+            <h2 class="tally-value" id="total-counter">
+
+            </h2>
+        </div>
+    </div>
     <script type="module" src="js/app.js"></script>
 </body>
+
 </html>
