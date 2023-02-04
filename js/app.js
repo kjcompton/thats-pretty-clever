@@ -61,19 +61,19 @@ const rollDice = () => {
 const updateGraphics = () => {
     rolledContainer.forEach(element => {
         if (element.dataset.color !== '' && element.dataset.side !== '' && element.dataset.color !== 'undefined' && element.dataset.side !== 'undefined') {
-            element.querySelector('img').src = `./assets/${element.dataset.color}${element.dataset.side}.png`
+            element.querySelector('img').src = `../assets/${element.dataset.color}${element.dataset.side}.png`
         }
         else { element.querySelector('img').src = '' }
     })
     discardContainer.forEach(element => {
         if (element.dataset.color !== '' && element.dataset.side !== '' && element.dataset.color !== 'undefined' && element.dataset.side !== 'undefined') {
-            element.querySelector('img').src = `./assets/${element.dataset.color}${element.dataset.side}.png`
+            element.querySelector('img').src = `../assets/${element.dataset.color}${element.dataset.side}.png`
         }
         else { element.querySelector('img').src = '' }
     })
     chosenContainer.forEach(element => {
         if (element.dataset.color !== '' && element.dataset.side !== '' && element.dataset.color !== 'undefined' && element.dataset.side !== 'undefined') {
-            element.querySelector('img').src = `./assets/${element.dataset.color}${element.dataset.side}.png`
+            element.querySelector('img').src = `../assets/${element.dataset.color}${element.dataset.side}.png`
         }
         else { element.querySelector('img').src = '' }
     })
