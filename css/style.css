@@ -169,7 +169,7 @@ img {
     z-index: 2; */
   }
 .pre-filled {
-    background: url('/assets/x.png');
+    background: url('../assets/x.png');
     background-color: #fff;
     background-size: contain;
     background-repeat: no-repeat;
