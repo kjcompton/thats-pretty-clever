@@ -187,6 +187,7 @@ const endGame = () => {
     document.getElementById('green-counter').innerHTML = player1Board.calculateGreen()
     document.getElementById('orange-counter').innerHTML = player1Board.calculateOrange()
     document.getElementById('purple-counter').innerHTML = player1Board.calculatePurple()
+    document.getElementById('total-counter').innerHTML = player1Board.calculateScore()
 }
 
 const playRound = () => {
@@ -213,6 +214,7 @@ const playRound = () => {
     }
     
     else {
+        endGame()
         playActiveRound()
     }
 
