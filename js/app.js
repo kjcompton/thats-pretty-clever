@@ -1,52 +1,135 @@
 import Board from './board.js'
 import Die from './die.js'
 
+const discardDice = () => {
+    for (let i = 0; i < rolledDice.length; i++) {
+        if (rolledDice[i] !== '' && rolledDice[i].currentSide < diceChosen[diceChosen.length-1].currentSide) {
+            discardedDice.push(rolledDice.splice(i, 1, '')[0])
+            discardContainer[discardedDice.length-1].dataset.color = rolledContainer[i].dataset.color
+            discardContainer[discardedDice.length-1].dataset.side = rolledContainer[i].dataset.side
+            rolledContainer[i].dataset.color = ''
+            rolledContainer[i].dataset.side = ''
+        }
+    }
+    rolledContainer.forEach(element => {
+        element.style.pointerEvents = 'none'
+    })
+    activeRound += 1
+    actionButton.disabled = false
+    
+}
+
+
 const shuffleDice = (array) => {
     let shuffled = array.map(value => ({ value, sort: Math.random() })).sort((a, b) => a.sort -b.sort).map(({ value }) => value)
     return shuffled
 }
-
-const rollDice = (diceInHand) => {
+const rollComputerDice = () => {
     for (let i = 0; i < diceInHand.length; i++) {
-        diceInHand[i].rollDie()
+        if (diceInHand[i] != '') {
+            diceInHand[i].rollDie()
+        }
     }
     diceInHand = shuffleDice(diceInHand)
-    return diceInHand
+    rolledDice = diceInHand
+    for (let i = 0; i < rolledDice.length; i++) {
+        rolledContainer[i].dataset.color = rolledDice[i].color
+        rolledContainer[i].dataset.side = rolledDice[i].currentSide
+    }
+    updateGraphics()
 }
+
+const rollDice = () => {
+    for (let i = 0; i < diceInHand.length; i++) {
+        if (diceInHand[i] != '') {
+            diceInHand[i].rollDie()
+        }
+    }
+    diceInHand = shuffleDice(diceInHand)
+    rolledDice = diceInHand
+    for (let i = 0; i < rolledDice.length; i++) {
+        rolledContainer[i].dataset.color = rolledDice[i].color
+        rolledContainer[i].dataset.side = rolledDice[i].currentSide
+    }
+    updateGraphics()
+    rolledContainer.forEach(element => {
+        element.style.pointerEvents = 'auto'
+    })
+    actionButton.disabled = true
+}
+
 const updateGraphics = () => {
     rolledContainer.forEach(element => {
-        console.log(element)
-        element.src = '/assets/white1.png'
-        element.innerHTML = element.dataset.side
+        if (element.dataset.color !== '' && element.dataset.side !== '' && element.dataset.color !== 'undefined' && element.dataset.side !== 'undefined') {
+            element.querySelector('img').src = `/assets/${element.dataset.color}${element.dataset.side}.png`
+        }
+        else { element.querySelector('img').src = '' }
     })
     discardContainer.forEach(element => {
-        element.style.background = element.dataset.color
-        element.innerHTML = element.dataset.side
+        if (element.dataset.color !== '' && element.dataset.side !== '' && element.dataset.color !== 'undefined' && element.dataset.side !== 'undefined') {
+            element.querySelector('img').src = `/assets/${element.dataset.color}${element.dataset.side}.png`
+        }
+        else { element.querySelector('img').src = '' }
     })
     chosenContainer.forEach(element => {
-        element.style.background = element.dataset.color
-        element.innerHTML = element.dataset.side
+        if (element.dataset.color !== '' && element.dataset.side !== '' && element.dataset.color !== 'undefined' && element.dataset.side !== 'undefined') {
+            element.querySelector('img').src = `/assets/${element.dataset.color}${element.dataset.side}.png`
+        }
+        else { element.querySelector('img').src = '' }
     })
 }
+
 const playActiveRound = () => {
     //set action button to roll the dice
-    rolledDice = rollDice(diceInHand)
-    // let diceTest = document.querySelectorAll(".dice-container div")
-    // for (let i = 0; i < rolledDice.length; i++) {
-    //     diceTest[i].innerHTML = rolledDice[i].currentSide
-    //     diceTest[i].style.background = rolledDice[i].color
-    //     diceTest[i].dataset.color = rolledDice[i].color
-    //     diceTest[i].dataset.side = rolledDice[i].currentSide
-    // }
+    console.log(activeRound)
+    if (activeRound == 1) {
+        console.log("Round 1")
+        rollDice()
+    }
+    if (activeRound == 2) {
+        if ((discardedDice.length + diceChosen.length) >= 6) {
+            console.log('Ran out of dice at round 2')
+            gameRound+=1
+            passiveRound = true
+            roundReset = true
+        }
+        else {
+            console.log("Round 2")
+            rollDice()
+        }
+    }
 
-    // console.log(diceTest)
+    if (activeRound == 3) {
+        if ((discardedDice.length + diceChosen.length) >= 6) {
+            console.log('Ran out of dice at round 3')
+            rolledContainer.forEach(element => {
+                element.style.pointerEvents = 'none'
+            })
+            gameRound+=1
+            passiveRound = true
+            roundReset = true
+        }
+        else {
+            console.log("Round 3")
+            rollDice()
+        }
+        console.log('Last Round')
+        gameRound+=1
+        passiveRound = true
+        roundReset = true
+        
+        
+    }
+    
 }
-
-const playPassiveRound = () => {
-
+const playPassiveComputerRound = () => {
+    
+    console.log('Choose Passive Die')
+    resetDice()
+    rollComputerDice()
 }
-
-const playRound = () => {
+const resetDice = () => {
+    
     yellowDie.currentSide = 1
     blueDie.currentSide = 1
     greenDie.currentSide = 1
@@ -54,28 +137,55 @@ const playRound = () => {
     purpleDie.currentSide = 1
     whiteDie.currentSide = 1
     diceInHand = [yellowDie,  blueDie, greenDie, orangeDie, purpleDie, whiteDie]
-
-    
-    
-    rolledContainer.forEach((element, index) => {
-        element.addEventListener('click', event => {
-            diceChosen.push(rolledDice.splice(event.target.dataset.placement, 1, '')[0])
-            element.style.background = "#000"
-            
-            chosenContainer[0].dataset.color = event.target.dataset.color
-            chosenContainer[0].dataset.side = event.target.dataset.side
-            element.dataset.color = ""
-            element.dataset.side = ""
-
-            updateGraphics()
-            console.log(chosenContainer)
-            console.log(rolledDice)
-            console.log(diceChosen)
-        })
+    rolledDice = []
+    discardedDice = []
+    diceChosen = []
+    rolledContainer.forEach(element => {
+        element.dataset.color = ''
+        element.dataset.side = ''
     })
+    discardContainer.forEach(element => {
+        element.dataset.color = ''
+        element.dataset.side = ''
+    })
+    chosenContainer.forEach(element => {
+        element.dataset.color = ''
+        element.dataset.side = ''
+    })
+}
 
-    playActiveRound()
-    console.log(rolledDice)
+
+const playRound = () => {
+    document.getElementById('roundCounter').innerHTML = `Round: ${gameRound}`
+    if (passiveRound === true) {
+        rolledContainer.forEach(element => {
+            element.style.pointerEvents = 'none'
+        })
+        actionButton.disabled = false
+        playPassiveComputerRound()
+        passiveRound = false
+    }
+    else if (gameRound > 7) {
+        endGame()
+    }
+    else if (roundReset === true) {
+        resetDice()
+        console.log('ROUND RESET!!!')
+        activeRound = 1
+        roundReset = false
+        playActiveRound()
+    }
+    
+    else {
+        playActiveRound()
+    }
+
+    
+
+    
+ 
+    
+    
     //Active Round
     //First Roll click button to roll
     //Choose Die from rolled
@@ -121,15 +231,31 @@ const greenDie = new Die('green')
 const orangeDie = new Die('orange')
 const purpleDie = new Die('purple')
 const whiteDie = new Die('white')
+let roundReset = true
+let activeRound = 1
+let passiveRound = false
+let gameRound = 1
 let diceInHand = []
 let rolledDice = []
 let discardedDice = []
 let diceChosen = []
-let rolledContainer = document.querySelectorAll(".dice-container img")
-    let discardContainer = document.querySelectorAll(".discard-container div")
-    let chosenContainer = document.querySelectorAll(".dice-chosen-container div")
+let rolledContainer = document.querySelectorAll(".rolled-container div")
+let discardContainer = document.querySelectorAll(".discard-container div")
+let chosenContainer = document.querySelectorAll(".dice-chosen-container div")
+let actionButton = document.getElementById('actionButton')
+actionButton.addEventListener('click', playRound)
+rolledContainer.forEach(element => {
+    element.addEventListener('click', event => {
+        diceChosen.push(rolledDice.splice(element.dataset.placement, 1, '')[0])
+        chosenContainer[activeRound-1].dataset.color = element.dataset.color
+        chosenContainer[activeRound-1].dataset.side = element.dataset.side
+        element.dataset.color= ''
+        element.dataset.side= ''
+        discardDice()
+        updateGraphics()
+    })
+})
 
-playRound()
 
 
 

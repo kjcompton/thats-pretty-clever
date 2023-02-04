@@ -1,4 +1,5 @@
 body {
+    box-sizing: border-box;
     background: black;
     height: 100vh;
 }
@@ -10,12 +11,56 @@ body {
     
 }
 .dice-container div, .discard-container div {
-    min-width: 75px;
-    min-height: 75px;
+    height: 75px;
+    width: 75px;
 }
 .dice-container div {
-    background: #fff;
-    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0);
+    border: 2px solid #fff;
+
+    border-radius: 8px;
+}
+.sections-container {
+    width: 90%;
+}
+.left-graphics-container {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.right-graphics-container {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dice-main-container {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.graphics-container {
+    width: 100%;
+    height: 30%;
+    display: flex;
+}
+.board-container {
+    width: 60%;
+    height: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    border: 2px solid white;
+    border-radius: 5px;
 }
 .discard-container div {
     border: 1px solid #fff;
@@ -24,25 +69,24 @@ body {
 
 .dice-chosen-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 10%;
+}
+.marks-container {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 90%;
 }
 .dice-chosen-container div {
     border: 1px solid #fff;
     height: 75px;
     width: 75px;
 }
-.board-container {
-    width: 60%;
-    height: 60%;
-    margin: 0 auto;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
+
 .row {
     width: 100%;
     display: flex;
@@ -53,10 +97,67 @@ body {
 .section-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
-dice-container img {
-    width: 75px;
-    height: 75px;
+.yellow-blue-section {
+    width: 100%;
+    height: 55%;
+
+}
+.yellow-section {
+    width: 50%;
+    height: 100%;
+    border: 1px solid yellow;
+    border-radius: 5px;
+}
+.yellow-section .row {
+    height: 20%
+}
+.blue-section {
+    width: 50%;
+    height: 100%;
+    border: 1px solid blue;
+    border-radius: 5px;
+}
+.green-section {
+    width: 100%;
+    height: 15%;
+    border: 1px solid green;
+    border-radius: 5px;
+}
+.orange-section {
+    width: 100%;
+    height: 15%;
+    border: 1px solid orange;
+    border-radius: 5px;
+}
+.purple-section {
+    width: 100%;
+    height: 15%;
+    border: 1px solid purple;
+    border-radius: 5px;
+}
+img {
+    width: 80%;
+    border-radius: 5px;
+}
+.checkbox-display{
+    background-color: white;
+    display: inline-block;
+    height: 100%;
+    width: 19%;
+    z-index: 1;
+    position: relative;
+    transition: all 250ms ease-out;
+    cursor: pointer;
+}
+.marker-section input[type=checkbox]{
+    display: none;
+  /*   margin-right: -20px;
+    position: relative;
+    z-index: 2; */
+  }
+.marker-section input[type=checkbox]:checked + .checkbox-display{
+    background-color: green;
 }
