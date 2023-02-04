@@ -175,7 +175,7 @@ img {
     background-repeat: no-repeat;
 }
 .marker-section input[type=checkbox]:checked + .checkbox-display{
-    background: url('/assets/x.png');
+    background: url('../assets/x.png');
     background-color: #fff;
     background-size: contain;
     background-repeat: no-repeat;
