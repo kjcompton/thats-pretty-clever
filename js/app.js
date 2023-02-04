@@ -5,17 +5,41 @@ const shuffleDice = (array) => {
     let shuffled = array.map(value => ({ value, sort: Math.random() })).sort((a, b) => a.sort -b.sort).map(({ value }) => value)
     return shuffled
 }
-const rollDice = () => {
+
+const rollDice = (diceInHand) => {
     for (let i = 0; i < diceInHand.length; i++) {
         diceInHand[i].rollDie()
     }
     diceInHand = shuffleDice(diceInHand)
-    console.log(diceInHand)
+    return diceInHand
 }
-
+const updateGraphics = () => {
+    rolledContainer.forEach(element => {
+        console.log(element)
+        element.src = '/assets/white1.png'
+        element.innerHTML = element.dataset.side
+    })
+    discardContainer.forEach(element => {
+        element.style.background = element.dataset.color
+        element.innerHTML = element.dataset.side
+    })
+    chosenContainer.forEach(element => {
+        element.style.background = element.dataset.color
+        element.innerHTML = element.dataset.side
+    })
+}
 const playActiveRound = () => {
     //set action button to roll the dice
-    rollDice()
+    rolledDice = rollDice(diceInHand)
+    // let diceTest = document.querySelectorAll(".dice-container div")
+    // for (let i = 0; i < rolledDice.length; i++) {
+    //     diceTest[i].innerHTML = rolledDice[i].currentSide
+    //     diceTest[i].style.background = rolledDice[i].color
+    //     diceTest[i].dataset.color = rolledDice[i].color
+    //     diceTest[i].dataset.side = rolledDice[i].currentSide
+    // }
+
+    // console.log(diceTest)
 }
 
 const playPassiveRound = () => {
@@ -30,8 +54,28 @@ const playRound = () => {
     purpleDie.currentSide = 1
     whiteDie.currentSide = 1
     diceInHand = [yellowDie,  blueDie, greenDie, orangeDie, purpleDie, whiteDie]
-    rollDice()
 
+    
+    
+    rolledContainer.forEach((element, index) => {
+        element.addEventListener('click', event => {
+            diceChosen.push(rolledDice.splice(event.target.dataset.placement, 1, '')[0])
+            element.style.background = "#000"
+            
+            chosenContainer[0].dataset.color = event.target.dataset.color
+            chosenContainer[0].dataset.side = event.target.dataset.side
+            element.dataset.color = ""
+            element.dataset.side = ""
+
+            updateGraphics()
+            console.log(chosenContainer)
+            console.log(rolledDice)
+            console.log(diceChosen)
+        })
+    })
+
+    playActiveRound()
+    console.log(rolledDice)
     //Active Round
     //First Roll click button to roll
     //Choose Die from rolled
@@ -81,6 +125,9 @@ let diceInHand = []
 let rolledDice = []
 let discardedDice = []
 let diceChosen = []
+let rolledContainer = document.querySelectorAll(".dice-container img")
+    let discardContainer = document.querySelectorAll(".discard-container div")
+    let chosenContainer = document.querySelectorAll(".dice-chosen-container div")
 
 playRound()
 
