@@ -4,10 +4,10 @@ That's Pretty Clever is a game where players will roll 6 dice each with it's own
 I decided to make this game because I enjoy playing it with friends and wanted to see if I could challenge myself in making a solo version of the game to play online. 
 
 ### Wireframes
-![Wireframe1](https://github.com/kjcompton/thats-pretty-clever/assets/wireframe1.png)
-![Wireframe2](https://github.com/kjcompton/thats-pretty-clever/assets/wireframe2.png)
-![Wireframe3](https://github.com/kjcompton/thats-pretty-clever/assets/wireframe3.png)
-![Wireframe4](https://github.com/kjcompton/thats-pretty-clever/assets/wireframe4.jpeg)
+![Wireframe1](https://github.com/kjcompton/thats-pretty-clever/blob/main/assets/wireframe1.png)
+![Wireframe2](https://github.com/kjcompton/thats-pretty-clever/blob/main/assets/wireframe2.png)
+![Wireframe3](https://github.com/kjcompton/thats-pretty-clever/blob/main/assets/wireframe3.png)
+![Wireframe4](https://github.com/kjcompton/thats-pretty-clever/blob/main/assets/wireframe4.jpeg)
 
 ### MVP Goals
 As a player I want a rules section for the game that I can pull up at any time so that I can reference rules when I am confused about anything
