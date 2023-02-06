@@ -25,28 +25,28 @@ export default class Board {
         return total
     }
 
-    calculateBlue () {
+    calculateBlue() {
         let totalMarks = 0
         for (let i = 0; i < this.blueArea.length; i++) {
             if (this.blueArea[i] == true) {
                 totalMarks += 1
             }
         }
-        if (totalMarks === 11) return 56 
-        else if (totalMarks === 10) return 46 
-        else if (totalMarks === 9) return 37 
-        else if (totalMarks === 8) return 29 
-        else if (totalMarks === 7) return 22 
-        else if (totalMarks === 6) return 16 
-        else if (totalMarks === 5) return 11 
-        else if (totalMarks === 4) return 7 
-        else if (totalMarks === 3) return 4 
-        else if (totalMarks === 2) return 2 
-        else if (totalMarks === 1) return 1 
+        if (totalMarks === 11) return 56
+        else if (totalMarks === 10) return 46
+        else if (totalMarks === 9) return 37
+        else if (totalMarks === 8) return 29
+        else if (totalMarks === 7) return 22
+        else if (totalMarks === 6) return 16
+        else if (totalMarks === 5) return 11
+        else if (totalMarks === 4) return 7
+        else if (totalMarks === 3) return 4
+        else if (totalMarks === 2) return 2
+        else if (totalMarks === 1) return 1
         else return 0
     }
 
-    calculateGreen () {
+    calculateGreen() {
         if (this.greenArea[10] === true) return 66
         else if (this.greenArea[9] === true) return 55
         else if (this.greenArea[8] === true) return 45
@@ -57,18 +57,18 @@ export default class Board {
         else if (this.greenArea[3] === true) return 10
         else if (this.greenArea[2] === true) return 6
         else if (this.greenArea[1] === true) return 3
-        else if (this.greenArea[0] === true)return 1
+        else if (this.greenArea[0] === true) return 1
         else return 0
     }
 
-    calculateOrange () {
+    calculateOrange() {
         let total = 0
         for (let i = 0; i < this.orangeArea.length; i++) {
-            if (i  === 3 || i  === 6 || i  === 8) {
-                total += this.orangeArea[i]*2
+            if (i === 3 || i === 6 || i === 8) {
+                total += this.orangeArea[i] * 2
             }
-            else if (i  === 10) {
-                total += this.orangeArea[i]*3
+            else if (i === 10) {
+                total += this.orangeArea[i] * 3
             }
             else {
                 total += this.orangeArea[i]
@@ -77,7 +77,7 @@ export default class Board {
         return total
     }
 
-    calculatePurple () {
+    calculatePurple() {
         let total = 0
         for (let i = 0; i < this.purpleArea.length; i++) {
             total += this.purpleArea[i]
@@ -85,13 +85,13 @@ export default class Board {
         return total
     }
 
-    calculateFoxes () {
+    calculateFoxes() {
         const scores = [this.calculateYellow(), this.calculateBlue(), this.calculateGreen(), this.calculateOrange(), this.calculatePurple()]
         let lowestScore = Math.min(...scores)
         return lowestScore * this.numOfFoxes
     }
 
-    calculateScore () {
+    calculateScore() {
         const yellow = this.calculateYellow()
         const blue = this.calculateBlue()
         const green = this.calculateGreen()

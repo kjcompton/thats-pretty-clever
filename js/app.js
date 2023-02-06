@@ -19,11 +19,11 @@ const discardDice = () => {
     
 }
 
-
 const shuffleDice = (array) => {
     let shuffled = array.map(value => ({ value, sort: Math.random() })).sort((a, b) => a.sort -b.sort).map(({ value }) => value)
     return shuffled
 }
+
 const rollComputerDice = () => {
     for (let i = 0; i < diceInHand.length; i++) {
         if (diceInHand[i] != '') {
@@ -81,27 +81,22 @@ const updateGraphics = () => {
 
 const playActiveRound = () => {
     //set action button to roll the dice
-    console.log(activeRound)
     if (activeRound == 1) {
-        console.log("Round 1")
         rollDice()
     }
     if (activeRound == 2) {
         if ((discardedDice.length + diceChosen.length) >= 6) {
-            console.log('Ran out of dice at round 2')
             gameRound+=1
             passiveRound = true
             roundReset = true
         }
         else {
-            console.log("Round 2")
             rollDice()
         }
     }
 
     if (activeRound == 3) {
         if ((discardedDice.length + diceChosen.length) >= 6) {
-            console.log('Ran out of dice at round 3')
             rolledContainer.forEach(element => {
                 element.style.pointerEvents = 'none'
             })
@@ -110,10 +105,8 @@ const playActiveRound = () => {
             roundReset = true
         }
         else {
-            console.log("Round 3")
             rollDice()
         }
-        console.log('Last Round')
         gameRound+=1
         passiveRound = true
         roundReset = true
@@ -123,8 +116,6 @@ const playActiveRound = () => {
     
 }
 const playPassiveComputerRound = () => {
-    
-    console.log('Choose Passive Die')
     resetDice()
     rollComputerDice()
 }
@@ -155,7 +146,6 @@ const resetDice = () => {
 }
 
 const endGame = () => {
-    console.log("Game has ended!")
     let yellowValues = []
     document.querySelectorAll('.yellowValue').forEach(element => {
         yellowValues.push(element.checked)
@@ -177,10 +167,7 @@ const endGame = () => {
     document.querySelectorAll('.purpleValue').forEach(element => {
         purpleValues.push(parseInt(element.value))
     })
-    console.log(orangeValues)
-    console.log(greenValues)
     const player1Board = new Board(yellowValues, blueValues, greenValues, orangeValues, purpleValues)
-    console.log(player1Board)
     document.getElementById('gameEndContainer').style.display = 'flex';
     document.getElementById('yellow-counter').innerHTML = player1Board.calculateYellow()
     document.getElementById('blue-counter').innerHTML = player1Board.calculateBlue()
@@ -207,7 +194,6 @@ const playRound = () => {
     }
     else if (roundReset === true) {
         resetDice()
-        console.log('ROUND RESET!!!')
         activeRound = 1
         roundReset = false
         playActiveRound()
@@ -216,13 +202,6 @@ const playRound = () => {
     else {
         playActiveRound()
     }
-
-    
-
-    
- 
-    
-    
     //Active Round
     //First Roll click button to roll
     //Choose Die from rolled
@@ -249,17 +228,7 @@ const playRound = () => {
     //If passive player cannot use any from discard then they can use any from the active players chosen
 }
 
-const playGame = () => {
 
-}
-
-
-// document.querySelectorAll("#yellow-area input").forEach((element, index) => {
-//     element.addEventListener('change', event => {
-//         player1Board.yellowArea[index] = element.checked
-//         console.log(player1Board.yellowArea)
-//     })
-// })
 
 
 const yellowDie = new Die('yellow')
@@ -281,6 +250,7 @@ let discardContainer = document.querySelectorAll(".discard-container div")
 let chosenContainer = document.querySelectorAll(".dice-chosen-container div")
 let actionButton = document.getElementById('actionButton')
 actionButton.addEventListener('click', playRound)
+
 rolledContainer.forEach(element => {
     element.addEventListener('click', event => {
         diceChosen.push(rolledDice.splice(element.dataset.placement, 1, '')[0])
